@@ -11,7 +11,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "ab7f5a7202255afe4c50c53b6bc285fc"
     
-    //declare instance variables here
+    //declare instance variables
     let locationManager = CLLocationManager();
     let weatherDataModel = WeatherDataModel();
     
@@ -25,7 +25,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         super.viewDidLoad()
         
         
-        //Set up the location manager here
+        //Set up the location manager
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         locationManager.requestWhenInUseAuthorization();
@@ -96,7 +96,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     
-    //Write the updateUIWithWeatherData method here:
+    //update UI With Weather Data method
     
     func updateUIWithWeatherData() {
         
@@ -112,7 +112,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     
-    //Write the didUpdateLocations method here:
+    //didUpdateLocations method
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1];
         if (location.horizontalAccuracy > 0) {
@@ -130,7 +130,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     }
     
     
-    //Write the didFailWithError method here:
+    //didFailWithError method
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error);
         cityLabel.text = "Location Unavailable";
@@ -143,7 +143,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     
-    //Write the userEnteredANewCityName Delegate method here:
+    //userEnteredANewCityName Delegate method
     func userEnteredANewCityName(city: String) {
         
         let params : [String : String] = ["q" : city, "appid" : APP_ID]
@@ -152,7 +152,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     }
 
     
-    //Write the PrepareForSegue Method here
+    //PrepareForSegue method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "changeCityName") {
             

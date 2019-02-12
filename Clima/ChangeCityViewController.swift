@@ -2,7 +2,7 @@
 import UIKit
 
 
-//Write the protocol declaration here:
+//protocol declaration
 protocol ChangeCityDelegate {
     func userEnteredANewCityName(city: String)
 }
@@ -10,10 +10,9 @@ protocol ChangeCityDelegate {
 
 class ChangeCityViewController: UIViewController {
     
-    //Declare the delegate variable here:
+    //Declare delegate variable
     var delegate : ChangeCityDelegate?;
     
-    //This is the pre-linked IBOutlets to the text field:
     @IBOutlet weak var changeCityTextField: UITextField!
 
     
@@ -33,7 +32,7 @@ class ChangeCityViewController: UIViewController {
     
     
 
-    //This is the IBAction that gets called when the user taps the back button. It dismisses the ChangeCityViewController.
+    //This is the IBAction that gets called when the user taps the back button. It dismisses the ChangeCityViewController
     @IBAction func backButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
