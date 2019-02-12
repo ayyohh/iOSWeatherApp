@@ -50,7 +50,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
                 print(weatherJSON);
             
             } else {
-                print("Error", response.result.error);
+                print("Error", response.result.error!);
                 self.cityLabel.text = "Connection Issues";
             }
         }
@@ -101,7 +101,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     func updateUIWithWeatherData() {
         
         cityLabel.text = weatherDataModel.city;
-        temperatureLabel.text = String(weatherDataModel.temperature);
+        temperatureLabel.text = "\(weatherDataModel.temperature)°";
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName);
     }
     
